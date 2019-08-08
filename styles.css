@@ -1,0 +1,69 @@
+:root{
+    --player: #192a56;
+    --computer: #3c6382;
+    --win: #2ecc71;
+    --lose: #e74c3c;
+}
+
+body{
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    text-align: center;
+}
+
+.btn-restart{
+    display: none;
+    text-decoration: none;
+    padding: 5px 10px;
+    background: #000;
+    color: #aaa;
+}
+
+.btn-restart:hover{
+    background: #aaa;
+    color: #000;
+    cursor: pointer;
+}
+
+.score{
+    width: 75%;
+    margin: 30px auto;
+}
+
+.score p{
+    display: inline-block;
+    width: 550px;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+#player{
+    background: var(--player);
+    color: #ecf0f1;
+}
+
+#computer{
+    background: var(--computer);
+}
+
+.choice i{
+    margin: auto 30px;
+    padding: 30px;
+}
+
+.choice i:hover{
+    cursor: pointer;
+    color: var(--player);
+}
+
+.text-win{
+    color: var(--win);
+}
+
+.text-lose{
+    color: var(--lose);
+}

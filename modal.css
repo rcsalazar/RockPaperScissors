@@ -1,0 +1,60 @@
+:root{
+    --player: #192a56;
+    --computer: #3c6382;
+    --win: #2ecc71;
+    --lose: #e74c3c;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-content{
+    background: #fff;
+    margin: 10% auto;
+    width: 750px;
+    padding: 30px;
+    box-shadow: 5px 5px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    animation-name: modalopen;
+    animation-duration: 1s;
+}
+
+.view-result{
+    display:inline-block;
+    margin: auto 50px;
+}
+
+.modal-content h1{
+    margin-bottom: 1rem;
+}
+
+.modal-content p{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.player{
+    color: var(--player)
+}
+
+.computer{
+    color: var(--computer);
+}
+
+@keyframes modalopen{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
