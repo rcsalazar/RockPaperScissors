@@ -11,11 +11,13 @@ var scoreBoard = {
 // Play Game
 
 function play(e) {
-    restart.style.display = "inline-block";
     var playerChoice = e.target.id;
+    if (playerChoice !== ""){
+    restart.style.display = "inline-block";
     var computerChoice = getComputerChoice();
     var winner = getWinner(playerChoice, computerChoice);
     showWinner(winner, playerChoice, computerChoice);
+    }
 }
 
 // Computer Choice
@@ -32,7 +34,9 @@ function getComputerChoice() {
 
 // Get Winner
 function getWinner(p, c) {
-    if (p === c) {
+    if (p === ''){
+        return 'n/a';
+    } else if (p === c) {
         return "draw";
     } else if (p === "rock") {
         if (c === "paper") {
@@ -65,6 +69,7 @@ function showWinner(winner, playerChoice, computerChoice) {
         <div class="view-result"><i class="fas fa-hand-${computerChoice} fa-10x computer"></i>
         <p>Computer chose <strong>${computerChoice}</strong></p></div>
         `;
+        modal.style.display = "block";
     } else if (winner === "computer") {
         scoreBoard.computer++;
         result.innerHTML = `
@@ -74,7 +79,8 @@ function showWinner(winner, playerChoice, computerChoice) {
         <div class="view-result"><i class="fas fa-hand-${computerChoice} fa-10x computer"></i>
         <p>Computer chose <strong>${computerChoice}</strong></p></div>
         `;
-    } else {
+        modal.style.display = "block";
+    } else if (winner === "draw"){
         result.innerHTML = `
         <h1>Draw!</h1>
         <div class="view-result"><i class="fas fa-hand-${playerChoice} fa-10x player"></i>
@@ -82,12 +88,14 @@ function showWinner(winner, playerChoice, computerChoice) {
         <div class="view-result"><i class="fas fa-hand-${computerChoice} fa-10x computer"></i>
         <p>Computer chose <strong>${computerChoice}</strong></p></div>
         `;
+        modal.style.display = "block";
+    } else {
+        modal.style.display = "none";
     }
     score.innerHTML = `
     <p id="player">Player: ${scoreBoard.player}</p>
     <p id="computer">Computer: ${scoreBoard.computer}</p>
     `
-    modal.style.display = "block";
 }
 
 function clearModal(e) {
